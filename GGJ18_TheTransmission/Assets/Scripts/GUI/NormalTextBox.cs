@@ -62,15 +62,16 @@ public class NormalTextBox : MonoBehaviour {
             Select03Text == null)
             Debug.Log("NormalTextBox: Load Buttons Text Error!!!");
 
-
+		// TEST
+		loadText("room3-1");
     }
-	
+
 	// Update is called once per frame
 	void Update () {
 		
 	}
 
-    public void loadText(String GuyName, String TextId)
+    public void loadText(String GuyName, String TextId="0")
     {
         List<Xml2CSharp.Dialog> dList = dialogs.Dialog;
         foreach (Xml2CSharp.Dialog d in dList)
