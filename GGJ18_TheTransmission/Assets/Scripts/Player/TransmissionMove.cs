@@ -2,29 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour {
+public class TransmissionMove : MonoBehaviour {
 
-    private Rigidbody rb;
+    private Rigidbody2D rb;
     public float speed = 10;
 
 	// Use this for initialization
 	void Start ()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
 	}
-	
 
-	void FixedUpdate ()
+    void FixedUpdate()
     {
+
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        Vector3 movement = new Vector3(moveHorizontal, moveVertical);
 
         rb.AddForce(movement * speed);
 
     }
-
-
 
 }
