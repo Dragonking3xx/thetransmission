@@ -9,11 +9,6 @@ public class GameController : MonoBehaviour {
 	{
 		get
 		{
-			if (instance == null)
-			{
-				instance = new GameController();
-			}
-
 			return instance;
 		}
 
@@ -23,6 +18,18 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
+	public GameController()
+	{
+		if(instance)
+		{
+			Debug.Log("Only one GameController allowed!");
+			GameObject.DestroyImmediate(gameObject);
+		}
+		else
+		{
+			instance = this;
+		}
+	}
 
     public GameObject gui;
 

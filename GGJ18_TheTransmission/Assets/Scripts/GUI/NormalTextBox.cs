@@ -44,7 +44,7 @@ public class NormalTextBox : MonoBehaviour {
     private String TextId = "0";
     private Xml2CSharp.Options OptionList;
 
-    public GameObject go;
+    private GameObject go;
 
 
 
@@ -52,29 +52,35 @@ public class NormalTextBox : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+<<<<<<< HEAD
         Select01
         go = GetComponent<GameObject>();
+=======
+
+		go = gameObject;
+>>>>>>> 5a2a1f02e2f65d3c9bd4fc08e55cba81421c7471
         XmlSerializer serializer = new XmlSerializer(typeof(Xml2CSharp.Dialogs));
-        using (StringReader stream = new StringReader(TextA.text))
+        using (StringReader reader = new StringReader(TextA.text))
         {
-            dialogs = serializer.Deserialize(stream) as Xml2CSharp.Dialogs;
+            dialogs = serializer.Deserialize(reader) as Xml2CSharp.Dialogs;
         }
 
 
-        if (Select01Text == null ||
-            Select02Text == null ||
-            Select03Text == null)
-            Debug.Log("NormalTextBox: Load Buttons Text Error!!!");
+		if (Select01Text == null ||
+			Select02Text == null ||
+			Select03Text == null)
+			Debug.Log("NormalTextBox: Load Buttons Text Error!!!");
 
+		// TEST
+		loadText("room3-1");
+	}
 
-    }
-	
 	// Update is called once per frame
 	void Update () {
 		
 	}
 
-    public void loadText(String GuyName, String TextId)
+    public void loadText(String GuyName, String TextId="0")
     {
         List<Xml2CSharp.Dialog> dList = dialogs.Dialog;
         foreach (Xml2CSharp.Dialog d in dList)
