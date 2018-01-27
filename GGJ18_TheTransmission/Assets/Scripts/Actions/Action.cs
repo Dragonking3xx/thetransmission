@@ -4,13 +4,38 @@ using UnityEngine;
 
 public class Action : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	public string targetTag;
+
+	protected GameObject targetInRange = null;
+
+	public virtual void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Fire1"))
+		{
+			DoAction();
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public virtual void DoAction()
+	{
+		// override
+	}
+
+	protected virtual void OnTriggerEnter2D(Collider2D other)
+	{
+		if(other.tag == targetTag)
+		{
+			targetInRange = other.gameObject;
+			Debug.Log("Action " + tag + " target in range: " + other);
+		}
+	}
+
+	protected virtual void OnTriggerExit2D(Collider2D other)
+	{
+		if (other.gameObject == targetInRange)
+		{
+			Debug.Log("Action " + tag + " target out of range: " + other);
+			targetInRange = null;
+		}
 	}
 }

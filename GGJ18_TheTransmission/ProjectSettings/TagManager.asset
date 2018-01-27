@@ -6,6 +6,7 @@ TagManager:
   tags:
   - transmission
   - human
+  - elevator
   layers:
   - Default
   - TransparentFX

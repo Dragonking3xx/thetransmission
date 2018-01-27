@@ -19,6 +19,8 @@ public class HumanMove : Move {
 
 	public override void Activate()
 	{
+		base.Activate();
+
 		this.enabled = true;
 
 		// TODO activation animation
