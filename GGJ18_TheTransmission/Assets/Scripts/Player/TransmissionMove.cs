@@ -6,7 +6,14 @@ using UnityEngine;
 public class TransmissionMove : Move {
 
     private Rigidbody2D rb;
-    public float speed = 10;
+	private Renderer r;
+
+	private float originalAlpha;
+
+    public float Speed = 10;
+	public float MaxSpeed = 10;
+
+	public float FadeDuration = 2f;
 
 	private GameObject humanInRange = null;
 
@@ -14,9 +21,11 @@ public class TransmissionMove : Move {
 	void Start ()
     {
         rb = GetComponent<Rigidbody2D>();
+		r = GetComponent<Renderer>();
+
+		originalAlpha = r.material.color.a;
 	}
 	
-
 	void FixedUpdate ()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
@@ -24,8 +33,8 @@ public class TransmissionMove : Move {
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
-        rb.AddForce(movement * speed);
-
+        rb.AddForce(movement * Speed);
+		rb.velocity = rb.velocity.normalized * Mathf.Clamp(rb.velocity.magnitude, 0, MaxSpeed);
     }
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -77,8 +86,7 @@ public class TransmissionMove : Move {
 			transform.parent = null; // global root?
 		}
 
-		// TODO activation animation
-		GetComponent<Renderer>().enabled = true;
+		StartCoroutine(AnimateActivation());
 	}
 
 	public override void Deactivate()
@@ -90,10 +98,49 @@ public class TransmissionMove : Move {
 		}
 		else
 		{
-			Debug.Log("Nu humanInRange found, can't set parent!");
+			Debug.Log("No humanInRange found, can't set parent!");
 		}
 
-		// TODO deactivating animation
-		GetComponent<Renderer>().enabled = false;
+		StartCoroutine(AnimateDeactivation());
+	}
+
+	IEnumerator AnimateActivation()
+	{
+		r.enabled = true;
+
+		Color c;
+
+		while (r.material.color.a < originalAlpha)
+		{
+			c = r.material.color;
+			c.a += (Time.deltaTime / FadeDuration);
+			r.material.color = c;
+
+			yield return null;
+		}
+
+		c = r.material.color;
+		c.a = originalAlpha;
+		r.material.color = c;
+	}
+
+	IEnumerator AnimateDeactivation()
+	{
+		Color c;
+
+		while (r.material.color.a > 0)
+		{
+			c = r.material.color;
+			c.a -= (Time.deltaTime / FadeDuration);
+			r.material.color = c;
+
+			yield return null;
+		}
+
+		c = r.material.color;
+		c.a = 0;
+		r.material.color = c;
+
+		r.enabled = false;
 	}
 }
