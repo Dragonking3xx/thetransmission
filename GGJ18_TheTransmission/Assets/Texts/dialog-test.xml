@@ -1,3 +1,4 @@
+
 <dialogs>
 	<dialog id="room3-1">
 		<page id="0">
@@ -8,7 +9,7 @@
 					togetPage="coffee"
 				/>
 				<option
-					text="bläh?"
+					text="blÃ¤h?"
 					togetPage="coffee"
 				/>
 				<option
@@ -63,7 +64,7 @@
 			</options>
 		</page>
 		<page id="down">
-			<text>If you´re heading down, tell James that Commander Jonesis looking for him</text>
+			<text>If youÂ´re heading down, tell James that Commander Jonesis looking for him</text>
 			<options>
 				<option
 					text="Affirmative"
@@ -82,14 +83,14 @@
 	</dialog>
 	<dialog id="room5-1">
 		<page id="0">
-			<text>James, old chap! I’ve been looking for you. Do you remember what we talked about?</text>
+			<text>James, old chap! Iâ€™ve been looking for you. Do you remember what we talked about?</text>
 			<options>
 				<option
 					text="Hm?"
 					togetPage="weekend"
 				/>
 				<option
-					text="‘Fraid not."
+					text="â€˜Fraid not."
 					togetPage="weekend"
 				/>
 				<option
@@ -99,7 +100,7 @@
 			</options>
 		</page>
 		<page id="weekend">
-			<text>Our weekend plans? You, me, golf? We´re still on, right?</text>
+			<text>Our weekend plans? You, me, golf? WeÂ´re still on, right?</text>
 			<options>
 				<option
 					text="Oh, of course. You got it!"
@@ -110,24 +111,24 @@
 					togetPage="end dialog"
 				/>
 				<option
-					text="I don´t think so."
+					text="I donÂ´t think so."
 					togetPage="question"
 				/>
 			</options>
 		</page>
 		<page id="question">
-			<text>Hmmm...you don’t seem like yourself. Remind me of my service number. You have them all memorised.</text>
+			<text>Hmmm...you donâ€™t seem like yourself. Remind me of my service number. You have them all memorised.</text>
 			<options>
 				<option
 					text="451-2827"
 					action="death-r5-1"
 				/>
 				<option
-					text="….12345…?"
+					text="â€¦.12345â€¦?"
 					action="death-r5-1"
 				/>
 				<option
-					text="I don´t think so."
+					text="I donÂ´t think so."
 					togetPage="forward"
 				/>
 			</options>
@@ -144,7 +145,7 @@
 	</dialog>
 	<dialog id="room13-1">
 		<page id="0">
-			<text>Halt! Where do you think you’re going?</text>
+			<text>Halt! Where do you think youâ€™re going?</text>
 			<options>
 				<option
 					text="Get out of my way"
