@@ -52,13 +52,9 @@ public class NormalTextBox : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-<<<<<<< HEAD
-        Select01
-        go = GetComponent<GameObject>();
-=======
+        
 
 		go = gameObject;
->>>>>>> 5a2a1f02e2f65d3c9bd4fc08e55cba81421c7471
         XmlSerializer serializer = new XmlSerializer(typeof(Xml2CSharp.Dialogs));
         using (StringReader reader = new StringReader(TextA.text))
         {
