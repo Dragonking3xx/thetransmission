@@ -28,7 +28,7 @@ public class GameController : MonoBehaviour {
 
 //	private InputController inputcontroller;
 
-	private GameObject Player; // target for input, this can change (disembodied transmission, different overtakeable characters)
+	public GameObject Player; // target for input, this can change (disembodied transmission, different overtakeable characters)
 	private List<Item> items;
 	// TODO Enemies etc.
 
@@ -36,8 +36,8 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		
-	}
+        Player = GameObject.FindGameObjectWithTag("transmission");
+    }
 	
 	// Update is called once per frame
 	void Update () {
