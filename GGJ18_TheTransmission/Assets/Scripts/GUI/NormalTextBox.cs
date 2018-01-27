@@ -33,6 +33,10 @@ public class NormalTextBox : MonoBehaviour {
     public GameObject Select02Text;
     public GameObject Select03Text;
 
+    public GameObject Select01;
+    public GameObject Select02;
+    public GameObject Select03;
+
     public TextAsset TextA;
     private Xml2CSharp.Dialogs dialogs;
 
@@ -48,8 +52,12 @@ public class NormalTextBox : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        Select01 = GameObject.Find("Select01");
+        Select02 = GameObject.Find("Select02");
+        Select03 = GameObject.Find("Select03");
 
-		go = gameObject;
+
+        go = gameObject;
         XmlSerializer serializer = new XmlSerializer(typeof(Xml2CSharp.Dialogs));
         using (StringReader reader = new StringReader(TextA.text))
         {
@@ -73,6 +81,9 @@ public class NormalTextBox : MonoBehaviour {
 
     public void loadText(String GuyName, String TextId="0")
     {
+        Select01.SetActive(true);
+        Select02.SetActive(true);
+        Select03.SetActive(true);
         List<Xml2CSharp.Dialog> dList = dialogs.Dialog;
         foreach (Xml2CSharp.Dialog d in dList)
         {
@@ -98,6 +109,15 @@ public class NormalTextBox : MonoBehaviour {
 
     }
     
+    public void LoadFluffText()
+    {
+        Select01.SetActive(false);
+        Select02.SetActive(false);
+        Select03.SetActive(false);
+
+
+
+    }
 
 
 

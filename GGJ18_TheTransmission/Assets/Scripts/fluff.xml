@@ -1,0 +1,93 @@
+<dialogs>
+	<dialog id="intro">
+		<text>The sudden creaking bulwarks are all the warning you get before your ship bursts at its seams, scattering you into the night. Your body shifts, adapting automatically before the cold vacuum of space can consume you. In less than a nanosecond, you are intangible and weightless, and your new form - pure information and pure instinct - homes in onto the nearest receiver. You have no control over yourself as you speed down through the atmosphere of an alien world. Vaguely, you recognise the landmasses, and the part of your mind which is still you recoils. You had heard of humans, in stories, and seen the images of their peculiar blue planet. But their air would kill you, you are certain of that. You continue your descent, helpless and trapped, aiming for the largest receiver you can sense….</text>
+	</dialog>
+	<dialog id="room-1-text">
+		<text>You are received through a giant dish, and drawn into some kind of structure. A room full of alien objects and, terrifyingly, an alien. You try to take it all in, but it’s overwhelming, and your senses are screaming as the poisonous atmosphere eats away at you. With only moments to live, you feel yourself irresistibly drawn to the alien, the human.</text>
+	</dialog>
+	<dialog id="room-1-normodude">
+		<text>An odd warmth fills you even as you creep into every nook and cranny of the human. Fascinated, you examine the tools have at your disposal. Muscle memory serves reasonably, and you move the perambulatory devices at the lower end of the body. Similar tools higher up on the human seem to be highly dexterous, and you wriggle the extremities. Somewhere inside, the human consciousness emits a final dying scream before you smother that too.</text>
+	</dialog>
+	<dialog id="room-2-text">
+		<text>The strange environment persists in its alienness, but there seems to be nothing additional of interest here.</text>
+	</dialog>
+	<dialog id="room-3-text">
+		<text>Another human. It does not appear to have noticed anything out of the ordinary. Just act natural. A misstep could be fatal. If only you knew what natural meant.</text>
+	</dialog>
+	<dialog id="room-4-log">
+		<text>You reach out with the dexterous upper extremities and touch the wall-mounted, primitive computing device. The pages are filled with a language you can barely grasp, so instead you turn inwards. This human was remarkably adept at its language, and echoes return to you. You flip through the pages of the device, faster and faster, and you suddenly realise - you speak can speak this dialect of human too. [Learned English] Before you switch off the machine, a little message pops up and vanishes again.</text>
+	</dialog>
+	<dialog id="room-5-text">
+		<text>The floor in this room looks fascinating. Best to take a closer look.</text>
+	</dialog>
+	<dialog id="room-5-normodude">
+		<text>This transmission is easier, and the human dies far quicker and less painfully. You think it might be a kindness.</text>
+	</dialog>
+	<dialog id="room-5-log">
+		<text>
+		Accessing Files….
+		Commander M. Jones 
+		DoB: 4th September 2015
+		City: Illinois
+		Service Number: 451-2947
+		Date of Service in the Army: 4th July 2033
+		Platoon: 4th Extreme Tracking Division
+		Specialities: Elite Sniper, Charismatic Leader, Diplomat Extraordinaire, Golf Handicap of 4
+		Likes: Fois gras, snug uniforms, dogs
+		Dislikes: Bad manners, homoerotic subtexts, cyclists. 
+		Memo: Sycophant 
+		</text>
+	</dialog>
+	<dialog id="room-6-text">
+		<text>Nothing of interest here either. Strange, how quickly you seem to be adapting. It is almost dull.</text>
+	</dialog>
+	<dialog id="room-7-text">
+		<text>An object lies on the floor. It could be another trap. Beyond it, some reflective machines glitter.</text>
+	</dialog>
+	<dialog id="room-7-log">
+		<text>
+		Accessing Files….Checking ID….Confirmed. 
+		Project Samson [Classified, Level 2]
+		Established in 2022, the project is aimed at communicating with lifeforms in the far reaches of space. While the technology at the time was far from sufficient for this gargantuan undertaking, the earliest iteration still picked up some odd transmissions which were later discovered to be alien in origin. As technological developments advanced, the scanner ranges increased and grew more sophisticated, until some of the transmissions could be interpreted. The contents of the messages were so horrifying that they drove three scientists to suicide before the damage could be established and contained. After some more experiments, the transmissions could be safely read. The gist was [classified, security clearance insufficient]. 
+		Further security steps in-house are strongly recommended. The construction of Checkpoints, armed with cameras and automatic lethal force traps, has already been successfully implemented. The institute must be protected at all costs. 
+		Memo: Ratite
+		</text>
+	</dialog>	
+	<dialog id="room-7-smoldude">
+		<text>This human is different. Smaller, but more intelligent than the previous one. It takes longer to blink out of existence, and its screams echo in your mind even after it is gone.</text>
+	</dialog>
+	<dialog id="room-7-keycard">
+		<text>The object from before slides into this likely-looking hole. A clunk sounds from the moving contraption that transports you from one area to the next. [New room open]</text>
+	</dialog>
+	<dialog id="room-9-text">
+		<text>The loud whirring of the shining machinery fills your senses, and something tells you this needs your careful attention.</text>
+	</dialog>
+	<dialog id="room-10-text">
+		<text>Another object on the floor?</text>
+	</dialog>
+	<dialog id="room-11-mussldude">
+		<text>This human is an entirely different story. It’s so big, you have to take a moment to relearn the extremities. You are certain there are parts of this place where it wouldn’t even fit through. It seems strong though.</text>
+	</dialog>
+	<dialog id="room-12-text">
+		<text>A stack of containers blocks your path.</text>
+	</dialog>
+	<dialog id="room-12-log">
+		<text>
+		Accessing Files….Checking ID….Confirmed.
+		Update on codes and regulations, 15th March 2038. [Classified, Level 5]
+		Due to security compromises on [dates, times and incidents redacted] entry and exit from the institute is now subject to additional security checks at every exit. These include body scanners, rotating passwords. Please observe the memos and expect spot checks, which may include cavity searches. 
+		Memo: Prancer
+		</text>
+	</dialog>
+	<dialog id="room-12-keycard">
+		<text>The trap ahead flickers and blinks out. There appears to be a logic to all this. Perhaps humans are not as entirely unpredictable as you thought.</text>
+	</dialog>
+	<dialog id="outro">
+		<text>
+		You punch in the door code, and fresh air washes over you and into your host body’s lungs. Consumed this way, it is actually not that unpleasant. You find yourself surrounded by high walls made of some unknown material, and you can see humans up ahead, gesturing at you. 
+		You understand that they are trying to urge you to speed up so you do, and you leave the compound without further obstruction. The whole of the human world seems to roll out in front of you like a carpet.  You can postpone your return home for a little while yet.
+
+		THE END
+		</text>
+	</dialog>
+</dialogs>
