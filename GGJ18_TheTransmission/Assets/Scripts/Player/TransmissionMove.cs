@@ -1,37 +1,37 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TransmissionMove : Move {
 
-    private Rigidbody2D rb;
-	private Renderer r;
-
-	private float originalAlpha;
-
-    public float Speed = 10;
+	public float Speed = 10;
 	public float MaxSpeed = 10;
 
 	public float FadeDuration = 2f;
 
-	private GameObject humanInRange = null;
+	private Rigidbody2D rb;
+	private Renderer r;
+
+	private GameObject humanInRange;
+
+	private float originalAlpha;
 
 	// Use this for initialization
-	void Start ()
+	void Start()
     {
         rb = GetComponent<Rigidbody2D>();
 		r = GetComponent<Renderer>();
 
 		originalAlpha = r.material.color.a;
 	}
-	
-	void FixedUpdate ()
+
+    void FixedUpdate()
     {
+
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        Vector3 movement = new Vector3(moveHorizontal, moveVertical);
 
         rb.AddForce(movement * Speed);
 		rb.velocity = rb.velocity.normalized * Mathf.Clamp(rb.velocity.magnitude, 0, MaxSpeed);
