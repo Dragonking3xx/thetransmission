@@ -163,7 +163,7 @@ public class NormalTextBox : MonoBehaviour {
     {
         GameObject deathGo = GameObject.Find("DeathText");
         deathGo.GetComponent<Text>().text = deathText;
-        GameObject.Find("DeathText").SetActive(true);
+        GameObject.Find("GUI").SetActive(true);
     }
 
 

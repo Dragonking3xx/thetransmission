@@ -51,5 +51,7 @@ public class GameController : MonoBehaviour {
     public void Death(string DeathText)
     {
 
+
+        NormalTextBox.Instance.Death(DeathText);
     }
 }
