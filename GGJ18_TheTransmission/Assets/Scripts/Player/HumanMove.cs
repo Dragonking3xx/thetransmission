@@ -84,6 +84,7 @@ public class HumanMove : Move {
 			if(transmissionMove != null)
 			{
 				transmissionMove.Activate();
+				GetComponent<Animator>().SetTrigger("transmit");
 
 				Deactivate();
 			}
@@ -106,6 +107,8 @@ public class HumanMove : Move {
 			if (transmissionMove != null)
 			{
 				transmissionMove.Deactivate();
+
+				GetComponent<Animator>().SetTrigger("receive");
 
 				Activate();
 			}

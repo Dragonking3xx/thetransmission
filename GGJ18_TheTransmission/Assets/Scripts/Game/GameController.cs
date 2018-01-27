@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
-	public GameController()
+	void Awake()
 	{
 		if(instance)
 		{
