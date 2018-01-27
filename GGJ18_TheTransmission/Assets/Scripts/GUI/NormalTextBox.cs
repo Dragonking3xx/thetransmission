@@ -33,6 +33,10 @@ public class NormalTextBox : MonoBehaviour {
     public GameObject Select02Text;
     public GameObject Select03Text;
 
+    public GameObject Select01;
+    public GameObject Select02;
+    public GameObject Select03;
+
     public TextAsset TextA;
     private Xml2CSharp.Dialogs dialogs;
 
@@ -48,7 +52,7 @@ public class NormalTextBox : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        
+        Select01
         go = GetComponent<GameObject>();
         XmlSerializer serializer = new XmlSerializer(typeof(Xml2CSharp.Dialogs));
         using (StringReader stream = new StringReader(TextA.text))
@@ -97,6 +101,10 @@ public class NormalTextBox : MonoBehaviour {
 
     }
     
+    public void LoadFluffText()
+    {
+
+    }
 
 
 
