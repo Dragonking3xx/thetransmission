@@ -1,0 +1,215 @@
+<dialogs>
+	<dialog id="room3-1">
+		<page id="0">
+			<text>Hey Robert anything new on the radar signals?</text>
+			<options>
+				<option
+					text="gargl"
+					togetPage="coffee"
+				/>
+				<option
+					text="bläh?"
+					togetPage="coffee"
+				/>
+				<option
+					text="ahhhhhhhhh!"
+					togetPage="coffee"
+				/>
+			</options>
+		</page>
+		<page id="coffee">
+			<text>Man you sound like you need coffee. Grab some in the other room.</text>
+			<options>
+				<option
+					text="glarg"
+					action="end dialog"
+				/>
+				<option
+					text="gnaaaaaaaah"
+					action="end dialog"
+				/>
+				<option
+					text="blub"
+					action="end dialog"
+				/>
+			</options>
+		</page>
+	</dialog>
+	<dialog id="room3-2">
+		<page id="0">
+			<text>Feeling better?</text>
+			<options>
+				<option
+					text="Yes!"
+					togetPage="down"
+				/>
+				<option
+					text="I have become Death, Destroyer of Worlds."
+					togetPage="coffee2"
+				/>
+				<option
+					text="Glarg?"
+					togetPage="coffee2"
+				/>
+			</options>
+		</page>
+		<page id="coffee2">
+			<text>Better get a second coffee</text>
+			<options>
+				<option
+					text="Ok"
+					togetPage="end dialog"
+				/>
+			</options>
+		</page>
+		<page id="down">
+			<text>If you´re heading down, tell James that Commander Jonesis looking for him</text>
+			<options>
+				<option
+					text="Affirmative"
+					action="end dialog"
+				/>
+				<option
+					text="Will do."
+					action="end dialog"
+				/>
+				<option
+					text="Glarg"
+					togetPage="coffee2"
+				/>
+			</options>
+		</page>
+	</dialog>
+	<dialog id="room5-1">
+		<page id="0">
+			<text>James, old chap! I’ve been looking for you. Do you remember what we talked about?</text>
+			<options>
+				<option
+					text="Hm?"
+					togetPage="weekend"
+				/>
+				<option
+					text="‘Fraid not."
+					togetPage="weekend"
+				/>
+				<option
+					text="Like I care."
+					togetPage="question"
+				/>
+			</options>
+		</page>
+		<page id="weekend">
+			<text>Our weekend plans? You, me, golf? We´re still on, right?</text>
+			<options>
+				<option
+					text="Oh, of course. You got it!"
+					action="end dialog"
+				/>
+				<option
+					text="Hm, yes. See you then."
+					togetPage="end dialog"
+				/>
+				<option
+					text="I don´t think so."
+					togetPage="question"
+				/>
+			</options>
+		</page>
+		<page id="question">
+			<text>Hmmm...you don’t seem like yourself. Remind me of my service number. You have them all memorised.</text>
+			<options>
+				<option
+					text="451-2827"
+					action="death-r5-1"
+				/>
+				<option
+					text="….12345…?"
+					action="death-r5-1"
+				/>
+				<option
+					text="I don´t think so."
+					togetPage="forward"
+				/>
+			</options>
+		</page>
+		<page id="forward">
+			<text>Hmmm...fine. But mind your damn manners!</text>
+			<options>
+				<option
+					text="Ok"
+					togetPage="end dialog"
+				/>
+			</options>
+		</page>
+	</dialog>
+	<dialog id="room13-1">
+		<page id="0">
+			<text>Halt! Where do you think you’re going?</text>
+			<options>
+				<option
+					text="Get out of my way"
+					action="tranferal-death"
+				/>
+				<option
+					text="Signing out for the night"
+					togetPage="password"
+				/>
+				<option
+					text="I have a delivery to make."
+					togetPage="password"
+				/>
+			</options>
+		</page>
+		<page id="password">
+			<text>Very well. Password?</text>
+			<options>
+				<option
+					text="No!"
+					action="tranferal-death"
+				/>
+				<option
+					text="Sibilant?"
+					action="death-r13-1"
+				/>
+				<option
+					text="Sycophant?"
+					togetPage="password2"
+				/>
+			</options>
+		</page>
+		<page id="password2">
+			<text>Correct. Password 2?</text>
+			<options>
+				<option
+					text="Asset?"
+					action="death-r13-1"
+				/>
+				<option
+					text="Afreet?"
+					togetPage="code"
+				/>
+				<option
+					text="Pizza?"
+					action="tranferal-death"
+				/>
+			</options>
+		</page>
+		<page id="code">
+			<text>Correct. Here is the door code.</text>
+			<options>
+				<option
+					text="Thank you"
+					action="end dialog"
+				/>
+				<option
+					text="Ha!"
+					action="tranferal-death"
+				/>
+				<option
+					text="About time."
+					togetPage="end dialog"
+				/>
+			</options>
+		</page>
+	</dialog>
+</dialogs>

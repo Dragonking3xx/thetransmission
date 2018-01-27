@@ -23,6 +23,9 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
+
+    public GameObject gui;
+
 //	private InputController inputcontroller;
 
 	private GameObject Player; // target for input, this can change (disembodied transmission, different overtakeable characters)
@@ -32,6 +35,7 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		
 	}
 	
@@ -39,4 +43,13 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void DialogEnd()
+    {
+
+    }
+    public void Death(string DeathText)
+    {
+
+    }
 }
