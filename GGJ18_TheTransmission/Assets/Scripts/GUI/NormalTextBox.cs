@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeathScript : MonoBehaviour {
+public class NormalTextBox : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -14,8 +14,18 @@ public class DeathScript : MonoBehaviour {
 		
 	}
 
-    public void Restart()
+    public void Text01()
     {
 
     }
+    public void Text02()
+    {
+
+    }
+    public void Text03()
+    {
+
+    }
+
+
 }
