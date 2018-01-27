@@ -73,6 +73,8 @@ public class TransmissionMove : Move {
 
 	public override void Activate()
 	{
+		base.Activate();
+
 		this.enabled = true;
 
 		GameObject charactersNode = GameObject.Find("Characters");
@@ -142,5 +144,7 @@ public class TransmissionMove : Move {
 		r.material.color = c;
 
 		r.enabled = false;
+
+		rb.velocity = Vector2.zero; // TODO smooth to human head?
 	}
 }

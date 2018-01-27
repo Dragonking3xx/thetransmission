@@ -3,10 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Abstract Base class for different moves
-public abstract class Move : MonoBehaviour {
+public class Move : MonoBehaviour {
 	// derive and fill
 
-	public abstract void Activate();
-	public abstract void Deactivate();
+	public virtual void Activate() {
+		// TODO does this belong here?
+		FollowCam followCam = Camera.main.GetComponent<FollowCam>();
+		if(followCam != null)
+		{
+			followCam.FollowTarget = gameObject;
+		}
+	}
 
+	public virtual void Deactivate() { }
 }
