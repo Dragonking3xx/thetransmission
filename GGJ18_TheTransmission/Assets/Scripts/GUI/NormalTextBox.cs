@@ -179,6 +179,7 @@ public class NormalTextBox : MonoBehaviour {
         {
             if (Dialog.Id.Equals(TextId))
             {
+              
                 GameObject.Find("PCTextbox").SetActive(true);
                 PCTextBox.Instance.SetText(Dialog.Text);
                 break;
