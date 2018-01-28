@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TransmissionMove : Move {
 
+	public Vector3 headOffset = Vector3.up * 6;
+
 	public float Speed = 10;
 	public float MaxSpeed = 10;
 
@@ -110,6 +112,8 @@ public class TransmissionMove : Move {
 	{
 		r.enabled = true;
 
+		rb.AddForce(Vector2.up * 300);
+
 		Color c;
 
 		while (r.material.color.a < originalAlpha)
@@ -129,6 +133,9 @@ public class TransmissionMove : Move {
 	IEnumerator AnimateDeactivation()
 	{
 		Color c;
+
+		rb.velocity = Vector2.zero;
+		rb.AddForce(((humanInRange.transform.position + headOffset) - transform.position)*100);
 
 		while (r.material.color.a > 0)
 		{

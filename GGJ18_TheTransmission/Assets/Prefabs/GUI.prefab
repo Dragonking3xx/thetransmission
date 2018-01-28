@@ -1013,6 +1013,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c278a082a168d24f99ecf5d5b59dc5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TextBoxtext: {fileID: 1934601985445732}
+  Select01Text: {fileID: 1789047200659368}
+  Select02Text: {fileID: 1974804621153050}
+  Select03Text: {fileID: 1526622816652472}
+  Select01: {fileID: 1657853816129184}
+  Select02: {fileID: 1912868182183236}
+  Select03: {fileID: 1250675371961070}
+  TextA: {fileID: 4900000, guid: a50b31a497e90de4db84070656f33724, type: 3}
+  GuyName: room3-1
 --- !u!114 &114309611761494888
 MonoBehaviour:
   m_ObjectHideFlags: 1
