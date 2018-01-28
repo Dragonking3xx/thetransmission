@@ -37,8 +37,11 @@ public class NormalTextBox : MonoBehaviour {
 
 	public TextAsset TextADialog;
     public TextAsset TextAFluff;
+    public TextAsset TextADeath;
+
     private Xml2CSharp.Dialogs Dialogs;
     private FluffClass.Dialogs FluffDialogs;
+    private FluffClass.Dialogs DeathDialogs;
 
     public String GuyName = "";
     private String TextId = "0";
@@ -78,6 +81,12 @@ public class NormalTextBox : MonoBehaviour {
         using (StringReader reader = new StringReader(TextADialog.text))
         {
             Dialogs = serializer.Deserialize(reader) as Xml2CSharp.Dialogs;
+        }
+
+        serializer = new XmlSerializer(typeof(FluffClass.Dialogs));
+        using (StringReader reader = new StringReader(TextADeath.text))
+        {
+            DeathDialogs = serializer.Deserialize(reader) as FluffClass.Dialogs;
         }
 
 
@@ -253,8 +262,14 @@ public class NormalTextBox : MonoBehaviour {
 
     public void Death(String deathText)
     {
-		DeathGO.SetActive(true);
-		DeathText.GetComponent<Text>().text = deathText;
+        foreach(FluffClass.Dialog d in DeathDialogs.Dialog)
+        {
+            if(d.Id.Equals(deathText))
+            {
+                DeathText.GetComponent<Text>().text = deathText;
+                break;
+            }
+        }
     }
 
 

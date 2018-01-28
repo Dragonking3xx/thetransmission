@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -50,6 +49,8 @@ public class GameController : MonoBehaviour {
 		DontDestroyOnLoad(gameObject); // stay persistent -- needed? On Die/Respawn everything should be reset
 
 		ResetCurrentLevel();
+
+        NormalTextBox.Instance.gameObject.SetActive(false);
 	}
 	
 	void ResetCurrentLevel()
@@ -57,32 +58,59 @@ public class GameController : MonoBehaviour {
 		Player = GameObject.FindGameObjectWithTag("transmission");
 		FollowCam followCam = Camera.main.gameObject.AddComponent<FollowCam>();
 		followCam.FollowTarget = Player;
+	}
 
-		NormalTextBox.Instance.gameObject.SetActive(false);
+    // Update is called once per frame
+    public int Deathdelay = 60;
+    private int DelayCounter = 0;
+	void Update()
+	{
+        if (State.DEATH == currentState)
+        {
+            if (DelayCounter > Deathdelay)
+            {
+                NormalTextBox.Instance.DeathGO.SetActive(true);
+                DelayCounter++;
+            }
+        }
+
 	}
 
 	public void ShowDialog(string dialog)
 	{
-		if(gui != null)
-		{
-			if (!gui.activeInHierarchy)
-			{
-				gui.SetActive(true);
-			}
-			
-			// HACK
-			if(NormalTextBox.Instance == null)
-			{
-				GameObject box = gui.transform.Find("Textbox").gameObject;
-				box.SetActive(true);
-			}
+        if (gui != null)
+        {
+            if (!gui.activeInHierarchy)
+            {
+                gui.SetActive(true);
+            }
 
-			if (NormalTextBox.Instance != null)
-			{
-				SetPlayerInteractionEnabled(false);
-				NormalTextBox.Instance.loadText(dialog);
-			}
-		}
+            if (dialog.EndsWith("log"))
+            {
+
+                SetPlayerInteractionEnabled(false);
+                NormalTextBox.Instance.LoadLogText(dialog);
+
+            }
+            else
+            {
+                // HACK
+                if (NormalTextBox.Instance == null)
+                {
+                    GameObject box = gui.transform.Find("Textbox").gameObject;
+                    box.SetActive(true);
+                }
+
+                if (NormalTextBox.Instance != null)
+                {
+                    SetPlayerInteractionEnabled(false);
+
+                    NormalTextBox.Instance.loadText(dialog);
+                }
+            }
+            
+        }
+		
 	}
 
 	public void DialogEnd()
@@ -95,6 +123,7 @@ public class GameController : MonoBehaviour {
 		SetState(State.DEATH);
 
         NormalTextBox.Instance.Death(DeathText);
+        Player.GetComponent<Animator>().SetTrigger("die");
     }
 
 	private void SetState(State newState)
@@ -114,8 +143,6 @@ public class GameController : MonoBehaviour {
 				SetPlayerInteractionEnabled(false);
 				break;
 		}
-
-		currentState = newState;
 	}
 
 	public void SetPlayerInteractionEnabled(bool enabled)
@@ -123,31 +150,16 @@ public class GameController : MonoBehaviour {
 		if(Player != null)
 		{
 			Player.GetComponent<Move>().enabled = enabled;
-			foreach(Action action in Player.GetComponents<Action>()) // TODO not found via base class?
+			foreach(Action action in Player.GetComponents<Action>())
 			{
 				action.enabled = enabled;
-			}
-
-			// HACK
-			DialogueAction da = Player.GetComponent<DialogueAction>();
-			if(da != null)
-			{
-				da.enabled = enabled;
-			}
-
-			ElevatorAction ea = Player.GetComponent<ElevatorAction>();
-			if (ea != null)
-			{
-				ea.enabled = enabled;
 			}
 		}
 	}
 
     public void Restart()
     {
-		SceneManager.LoadScene("01_Tutorial");
-		SetState(State.INGAME);
 
-		ResetCurrentLevel();
+
     }
 }

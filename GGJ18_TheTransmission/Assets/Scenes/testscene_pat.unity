@@ -260,6 +260,20 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1491216016172482, guid: 2c219404d564666469f91e6ed1b1dc93, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114305295975888822, guid: 2c219404d564666469f91e6ed1b1dc93,
+        type: 2}
+      propertyPath: TextAFluff
+      value: 
+      objectReference: {fileID: 4900000, guid: 9cc859073c4d4a74294174fe4798fcb9, type: 3}
+    - target: {fileID: 114305295975888822, guid: 2c219404d564666469f91e6ed1b1dc93,
+        type: 2}
+      propertyPath: TextADialog
+      value: 
+      objectReference: {fileID: 4900000, guid: 7c193833d78f29f408d568e6d6af7fc5, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c219404d564666469f91e6ed1b1dc93, type: 2}
   m_IsPrefabParent: 0

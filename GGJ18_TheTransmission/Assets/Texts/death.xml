@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dialogs>
+	<dialog id="room-5-spike">
+		<text>As the spikes pierce your host body, you realise that holes in these humans seem like a bad idea. Fluids leak out, and you fizzle away.</text>
+	</dialog>
+	<dialog id="room-5-dialog">
+		<text>Commander Jones draws a pistol and shoots you twice. Maybe you should have learned more about this world? Put it down to experience. Oh, wait.</text>
+	</dialog>
+	<dialog id="room-7-checkpoint">
+		<text>Congratulations, you’ve found the first piece of semi-advanced technology! As your host body disintegrates, you are dragged along with it, becoming one again with the great universe.</text>
+	</dialog>
+	<dialog id="room-9-buzzsaw">
+		<text>Well, size is not everything, but your host body did still need that upper half. The sudden size adjustment is too much for the organism, apparently, and as the torso hits the floor with a wet splat, you fizzle into nothingness.</text>
+	</dialog>
+	<dialog id="room-9-checkpoint">
+		<text>We have been over this - you aren’t the only advanced thing in here. You and everything you are evaporates and becomes so much more junk transmission.</text>
+	</dialog>
+	<dialog id="room-10-checkpoint">
+		<text>It seems this thing works from both sides.</text>
+	</dialog>
+	<dialog id="room-12-checkpoint">
+		<text>Yet another instance of human frailty. If only you had had a moment’s warning, you might have escaped death for another moment.</text>
+	</dialog>
+	<dialog id="room-13-spike">
+		<text>Your body still can’t tolerate holes. You fizzle away regretting your complete inability to improve.</text>
+	</dialog>
+	<dialog id="room-13-dialog">
+		<text>Talking isn’t your strong point, is it? He shoots you twice, and as the life drains from your host body, you also disintegrate.</text>
+	</dialog>
+	<dialog id="room-13-transfer">
+		<text>The air itself seems to eat away at you, and you struggle to get away - but there is nothing. You succumb to the poisonous atmosphere. Maybe a transfer wasn´t the best idea.</text>
+	</dialog>
+</dialogs>
