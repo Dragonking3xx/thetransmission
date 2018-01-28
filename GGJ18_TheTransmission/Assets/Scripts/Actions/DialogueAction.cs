@@ -19,7 +19,7 @@ public class DialogueAction : Action {
 			Dialogue dialogue = targetInRange.GetComponent<Dialogue>();
             if (dialogue.D != null)
             {
-                dialogue.D.DialogueID = dialogue.nextDialogueName;
+                dialogue.D.GetComponent<Dialogue>().DialogueID = dialogue.nextDialogueName;
             }
 
 			GameController.Instance.ShowDialog(dialogue.DialogueID);
