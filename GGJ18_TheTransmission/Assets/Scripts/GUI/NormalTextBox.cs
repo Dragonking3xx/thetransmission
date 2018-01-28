@@ -14,11 +14,6 @@ public class NormalTextBox : MonoBehaviour {
     {
         get
         {
-            if (instance == null)
-            {
-                instance = new NormalTextBox();
-            }
-
             return instance;
         }
 
@@ -47,10 +42,21 @@ public class NormalTextBox : MonoBehaviour {
     private GameObject go;
 
 
+	void Awake()
+	{
+		if (instance)
+		{
+			Debug.Log("Only one NormalTextBox allowed!");
+			GameObject.DestroyImmediate(gameObject);
+		}
+		else
+		{
+			instance = this;
+		}
+	}
 
-
-    // Use this for initialization
-    void Start()
+	// Use this for initialization
+	void Start()
     {
         Select01 = GameObject.Find("Select01");
         Select02 = GameObject.Find("Select02");
@@ -81,6 +87,11 @@ public class NormalTextBox : MonoBehaviour {
 
     public void loadText(String GuyName, String TextId="0")
     {
+		if(!gameObject.activeSelf)
+		{
+			gameObject.SetActive(true);
+		} 
+
         Select01.SetActive(true);
         Select02.SetActive(true);
         Select03.SetActive(true);

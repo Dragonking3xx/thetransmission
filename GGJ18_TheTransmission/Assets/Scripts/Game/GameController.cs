@@ -64,9 +64,33 @@ public class GameController : MonoBehaviour {
 
 	}
 
+	public void ShowDialog(string dialog)
+	{
+		if(gui != null)
+		{
+			if (!gui.activeInHierarchy)
+			{
+				gui.SetActive(true);
+			}
+			
+			// HACK
+			if(NormalTextBox.Instance == null)
+			{
+				GameObject box = gui.transform.Find("Textbox").gameObject;
+				box.SetActive(true);
+			}
+
+			if (NormalTextBox.Instance != null)
+			{
+				SetPlayerInteractionEnabled(false);
+				NormalTextBox.Instance.loadText(dialog);
+			}
+		}
+	}
+
 	public void DialogEnd()
     {
-
+		SetPlayerInteractionEnabled(true);
     }
 
     public void Death(string DeathText)
@@ -95,7 +119,7 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
-	private void SetPlayerInteractionEnabled(bool enabled)
+	public void SetPlayerInteractionEnabled(bool enabled)
 	{
 		if(Player != null)
 		{

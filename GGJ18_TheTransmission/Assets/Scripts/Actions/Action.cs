@@ -26,7 +26,7 @@ public class Action : MonoBehaviour {
 		if(other.tag == targetTag)
 		{
 			targetInRange = other.gameObject;
-			Debug.Log("Action " + tag + " target in range: " + other);
+			Debug.Log("Action " + targetTag + " target in range: " + other);
 		}
 	}
 
@@ -34,7 +34,7 @@ public class Action : MonoBehaviour {
 	{
 		if (other.gameObject == targetInRange)
 		{
-			Debug.Log("Action " + tag + " target out of range: " + other);
+			Debug.Log("Action " + targetTag + " target out of range: " + other);
 			targetInRange = null;
 		}
 	}

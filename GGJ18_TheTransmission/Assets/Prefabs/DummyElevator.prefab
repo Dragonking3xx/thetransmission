@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61940467783035530}
   - component: {fileID: 114385701863882546}
   m_Layer: 0
-  m_Name: Elevator
+  m_Name: DummyElevator
   m_TagString: elevator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
