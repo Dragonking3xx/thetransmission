@@ -16,7 +16,7 @@ public class Death : MonoBehaviour {
 
     public void Restart()
     {
-
+        GameController.Instance.Restart();
     }
 
 }

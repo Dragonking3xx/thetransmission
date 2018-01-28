@@ -169,7 +169,7 @@ public class NormalTextBox : MonoBehaviour {
             if (Dialog.Id.Equals(TextId))
             {
                 GameObject.Find("PCTextbox").SetActive(true);
-
+                PCTextBox.Instance.SetText(Dialog.Text);
                 break;
             }
 
@@ -253,7 +253,7 @@ public class NormalTextBox : MonoBehaviour {
     {
         GameObject deathGo = GameObject.Find("DeathText");
         deathGo.GetComponent<Text>().text = deathText;
-        GameObject.Find("GUI").SetActive(true);
+        GameObject.Find("Death").SetActive(true);
     }
 
 
