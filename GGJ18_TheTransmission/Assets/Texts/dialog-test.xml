@@ -1,4 +1,3 @@
-
 <dialogs>
 	<dialog id="room3-1">
 		<page id="0">
@@ -9,7 +8,7 @@
 					togetPage="coffee"
 				/>
 				<option
-					text="blÃ¤h?"
+					text="bläh?"
 					togetPage="coffee"
 				/>
 				<option
@@ -59,12 +58,12 @@
 			<options>
 				<option
 					text="Ok"
-					togetPage="end dialog"
+					action="end dialog"
 				/>
 			</options>
 		</page>
 		<page id="down">
-			<text>If youÂ´re heading down, tell James that Commander Jonesis looking for him</text>
+			<text>If you´re heading down, tell James that Commander Jonesis looking for him</text>
 			<options>
 				<option
 					text="Affirmative"
@@ -83,14 +82,14 @@
 	</dialog>
 	<dialog id="room5-1">
 		<page id="0">
-			<text>James, old chap! Iâ€™ve been looking for you. Do you remember what we talked about?</text>
+			<text>James, old chap! I’ve been looking for you. Do you remember what we talked about?</text>
 			<options>
 				<option
 					text="Hm?"
 					togetPage="weekend"
 				/>
 				<option
-					text="â€˜Fraid not."
+					text="‘Fraid not."
 					togetPage="weekend"
 				/>
 				<option
@@ -100,7 +99,7 @@
 			</options>
 		</page>
 		<page id="weekend">
-			<text>Our weekend plans? You, me, golf? WeÂ´re still on, right?</text>
+			<text>Our weekend plans? You, me, golf? We´re still on, right?</text>
 			<options>
 				<option
 					text="Oh, of course. You got it!"
@@ -108,27 +107,27 @@
 				/>
 				<option
 					text="Hm, yes. See you then."
-					togetPage="end dialog"
+					action="end dialog"
 				/>
 				<option
-					text="I donÂ´t think so."
+					text="I don´t think so."
 					togetPage="question"
 				/>
 			</options>
 		</page>
 		<page id="question">
-			<text>Hmmm...you donâ€™t seem like yourself. Remind me of my service number. You have them all memorised.</text>
+			<text>Hmmm...you don’t seem like yourself. Remind me of my service number. You have them all memorised.</text>
 			<options>
 				<option
 					text="451-2827"
 					action="death-r5-1"
 				/>
 				<option
-					text="â€¦.12345â€¦?"
+					text="….12345…?"
 					action="death-r5-1"
 				/>
 				<option
-					text="I donÂ´t think so."
+					text="I don´t think so."
 					togetPage="forward"
 				/>
 			</options>
@@ -138,14 +137,14 @@
 			<options>
 				<option
 					text="Ok"
-					togetPage="end dialog"
+					action="end dialog"
 				/>
 			</options>
 		</page>
 	</dialog>
 	<dialog id="room13-1">
 		<page id="0">
-			<text>Halt! Where do you think youâ€™re going?</text>
+			<text>Halt! Where do you think you’re going?</text>
 			<options>
 				<option
 					text="Get out of my way"
@@ -208,7 +207,7 @@
 				/>
 				<option
 					text="About time."
-					togetPage="end dialog"
+					action="end dialog"
 				/>
 			</options>
 		</page>
