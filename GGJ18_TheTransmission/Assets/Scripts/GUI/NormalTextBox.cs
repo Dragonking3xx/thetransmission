@@ -32,8 +32,10 @@ public class NormalTextBox : MonoBehaviour {
     public GameObject Select02;
     public GameObject Select03;
 
-    public TextAsset TextA;
-    private Xml2CSharp.Dialogs dialogs;
+    public TextAsset TextADialog;
+    public TextAsset TextAFluff;
+    private Xml2CSharp.Dialogs Dialogs;
+    private FluffClass.Dialogs FluffDialogs;
 
     public String GuyName = "";
     private String TextId = "0";
@@ -64,20 +66,26 @@ public class NormalTextBox : MonoBehaviour {
 
 
         go = gameObject;
-        XmlSerializer serializer = new XmlSerializer(typeof(Xml2CSharp.Dialogs));
-        using (StringReader reader = new StringReader(TextA.text))
+        XmlSerializer serializer = new XmlSerializer(typeof(FluffClass.Dialogs));
+        using (StringReader reader = new StringReader(TextAFluff.text))
         {
-            dialogs = serializer.Deserialize(reader) as Xml2CSharp.Dialogs;
+            FluffDialogs = serializer.Deserialize(reader) as FluffClass.Dialogs;
+        }
+
+        serializer = new XmlSerializer(typeof(Xml2CSharp.Dialogs));
+        using (StringReader reader = new StringReader(TextADialog.text))
+        {
+            Dialogs = serializer.Deserialize(reader) as Xml2CSharp.Dialogs;
         }
 
 
-		if (Select01Text == null ||
+        if (Select01Text == null ||
 			Select02Text == null ||
 			Select03Text == null)
 			Debug.Log("NormalTextBox: Load Buttons Text Error!!!");
 
 		// TEST
-		loadText("room3-1");
+		loadText(GuyName);
 	}
 
 	// Update is called once per frame
@@ -95,7 +103,7 @@ public class NormalTextBox : MonoBehaviour {
         Select01.SetActive(true);
         Select02.SetActive(true);
         Select03.SetActive(true);
-        List<Xml2CSharp.Dialog> dList = dialogs.Dialog;
+        List<Xml2CSharp.Dialog> dList = Dialogs.Dialog;
         foreach (Xml2CSharp.Dialog d in dList)
         {
             if (!d.Id.Equals(GuyName))
@@ -111,8 +119,21 @@ public class NormalTextBox : MonoBehaviour {
 
                 TextBoxtext.GetComponent<Text>().text = p.Text;
                 Select01Text.GetComponent<Text>().text = OptionList.Option[0].Text;
-                Select02Text.GetComponent<Text>().text = OptionList.Option[1].Text;
-                Select03Text.GetComponent<Text>().text = OptionList.Option[2].Text;
+
+                if (OptionList.Option.Count > 1) {
+                    Select02Text.GetComponent<Text>().text = OptionList.Option[1].Text;
+                } else
+                {
+                    Select02.SetActive(false);
+                }
+                if (OptionList.Option.Count > 2)
+                {
+                    Select03Text.GetComponent<Text>().text = OptionList.Option[2].Text;
+                } else {
+                    Select03.SetActive(false);
+                }
+
+
 
             }
 
@@ -126,6 +147,19 @@ public class NormalTextBox : MonoBehaviour {
         Select02.SetActive(false);
         Select03.SetActive(false);
 
+        List<FluffClass.Dialog> fluffDialogList = FluffDialogs.Dialog;
+        foreach(FluffClass.Dialog Dialog in fluffDialogList)
+        {
+            if (Dialog.Id.Equals(TextId))
+            {
+                TextBoxtext.GetComponent<Text>().text = Dialog.Text;
+                break;
+            }
+           
+        }
+
+        
+
 
 
     }
@@ -134,29 +168,39 @@ public class NormalTextBox : MonoBehaviour {
 
     public void Text01()
     {
-        if(OptionList.Option[0].Action != null)
+        if(OptionList != null)
         {
-            Action(OptionList.Option[0].Action);
-            return;
+            if(OptionList.Option[1].Action != null)
+            {
+                Action(OptionList.Option[0].Action);
+                return;
+            }
+            
         }
         loadText(GuyName, OptionList.Option[0].TogetPage);
 
     }
     public void Text02()
     {
-        if (OptionList.Option[1].Action != null)
+        if (OptionList != null)
         {
-            Action(OptionList.Option[1].Action);
-            return;
+            if (OptionList.Option[1].Action != null)
+            {
+                Action(OptionList.Option[1].Action);
+                return;
+            }
         }
         loadText(GuyName, OptionList.Option[1].TogetPage);
     }
     public void Text03()
     {
-        if (OptionList.Option[2].Action != null)
+        if (OptionList != null)
         {
-            Action(OptionList.Option[2].Action);
-            return;
+            if (OptionList.Option[2].Action != null)
+            {
+                Action(OptionList.Option[2].Action);
+                return;
+            }
         }
         loadText(GuyName, OptionList.Option[2].TogetPage);
     }
