@@ -424,6 +424,11 @@ Prefab:
       propertyPath: m_Name
       value: Human_01
       objectReference: {fileID: 0}
+    - target: {fileID: 114521209190897092, guid: 3d4ed7b7cb790a44fbe7eda0dd48a87a,
+        type: 2}
+      propertyPath: Depth
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d4ed7b7cb790a44fbe7eda0dd48a87a, type: 2}
   m_IsPrefabParent: 0

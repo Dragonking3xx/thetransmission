@@ -110,6 +110,8 @@ public class HumanMove : Move {
 				transmissionMove.Activate();
 				GetComponent<Animator>().SetTrigger("transmit");
 
+				GameController.Instance.Player = transmission;
+
 				Deactivate();
 			}
 			else
@@ -133,6 +135,8 @@ public class HumanMove : Move {
 				transmissionMove.Deactivate();
 
 				GetComponent<Animator>().SetTrigger("receive");
+
+				GameController.Instance.Player = gameObject;
 
 				Activate();
 			}

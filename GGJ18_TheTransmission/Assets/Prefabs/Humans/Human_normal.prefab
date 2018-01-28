@@ -1098,6 +1098,7 @@ MonoBehaviour:
   targetTag: elevator
   playerInsideElevator: 0
   playerInteractionEnabled: 1
+  Depth: 12
 --- !u!114 &114835563154325536
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -7,7 +7,9 @@ public class ElevatorAction : Action {
 
 	public bool playerInsideElevator = false;
 	public bool playerInteractionEnabled = true;
-	
+
+	public float Depth = 10;
+
 	public override void Update()
 	{
 		if (!playerInteractionEnabled) return;
@@ -104,7 +106,7 @@ public class ElevatorAction : Action {
 	{
 		// TODO play anim
 		//transform.Translate(Vector3.back);
-		StartCoroutine(MoveZ(-1, 0.5f));
+		StartCoroutine(MoveZ(-Depth, 0.5f));
 
 		GetComponent<Move>().enabled = true;
 	}
@@ -113,7 +115,7 @@ public class ElevatorAction : Action {
 	{
 		// TODO play anim
 		//transform.Translate(Vector3.forward);
-		StartCoroutine(MoveZ(1, 0.5f));
+		StartCoroutine(MoveZ(Depth, 0.5f));
 
 		GetComponent<Move>().enabled = false;
 	}
@@ -121,11 +123,17 @@ public class ElevatorAction : Action {
 	IEnumerator MoveZ(float z, float duration)
 	{
 		float targetZ = transform.position.z + z;
-		float direction = z > 0 ? 1 : -1;
-		while ((direction > 0 && transform.position.z < targetZ) || (direction < 0 && transform.position.z > targetZ)) {
-			transform.Translate(Vector3.forward * direction * Time.deltaTime / duration);
-			Debug.Log("MoveZ: " + transform.position.z);
-			yield return null;
+
+		bool simple = true;
+		if (!simple)
+		{	
+			float direction = z > 0 ? 1 : -1;
+			while ((direction > 0 && transform.position.z < targetZ) || (direction < 0 && transform.position.z > targetZ))
+			{
+				transform.Translate(Vector3.forward * direction * Time.deltaTime / duration);
+				Debug.Log("MoveZ: " + transform.position.z);
+				yield return null;
+			}
 		}
 
 		Vector3 pos = transform.position;
