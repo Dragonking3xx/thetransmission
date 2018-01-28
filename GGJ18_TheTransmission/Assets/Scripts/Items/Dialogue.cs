@@ -6,7 +6,7 @@ public class Dialogue : Item {
 
 	//public TextAsset Text;
 	public string DialogueID;
-    public Dialogue D;
+    public GameObject D;
     public string nextDialogueName = "";
 
 	// Use this for initialization
