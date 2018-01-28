@@ -35,6 +35,8 @@ public class NormalTextBox : MonoBehaviour {
 	public GameObject DeathGO;
 	public GameObject DeathText;
 
+	public GameObject PCTextbox1;
+
 	public TextAsset TextADialog;
     public TextAsset TextAFluff;
     public TextAsset TextADeath;
@@ -179,9 +181,9 @@ public class NormalTextBox : MonoBehaviour {
         {
             if (Dialog.Id.Equals(TextId))
             {
-              
-                GameObject.Find("PCTextbox").SetActive(true);
-                PCTextBox.Instance.SetText(Dialog.Text);
+
+				PCTextbox1.SetActive(true);
+				PCTextbox1.GetComponent<PCTextBox>().SetText(Dialog.Text);
                 break;
             }
 

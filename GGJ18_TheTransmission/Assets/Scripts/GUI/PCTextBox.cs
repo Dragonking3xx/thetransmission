@@ -22,7 +22,7 @@ public class PCTextBox : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        PCText = GameObject.Find("PCText").GetComponent<Text>();
+        PCText = transform.Find("PCText").gameObject.GetComponent<Text>();
         GameObject.Find("PrevPage").SetActive(false);
         GameObject.Find("NextPage").SetActive(false);
     }

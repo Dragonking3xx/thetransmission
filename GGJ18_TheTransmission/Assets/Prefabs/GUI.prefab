@@ -1076,9 +1076,11 @@ MonoBehaviour:
   Select03: {fileID: 1250675371961070}
   DeathGO: {fileID: 1565819791115246}
   DeathText: {fileID: 1845050176259528}
+  PCTextbox1: {fileID: 1491216016172482}
   TextADialog: {fileID: 4900000, guid: 7c193833d78f29f408d568e6d6af7fc5, type: 3}
   TextAFluff: {fileID: 4900000, guid: 9cc859073c4d4a74294174fe4798fcb9, type: 3}
-  GuyName: 5-1
+  TextADeath: {fileID: 4900000, guid: 6380966666aa05843817ae201264d5e9, type: 3}
+  GuyName: 
 --- !u!114 &114309611761494888
 MonoBehaviour:
   m_ObjectHideFlags: 1

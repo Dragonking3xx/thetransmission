@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61916630436179676}
   - component: {fileID: 114552810224202094}
   m_Layer: 0
-  m_Name: DialogueTrigger 1
+  m_Name: DeathTrigger
   m_TagString: dialogue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,3 +121,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DialogueID: 
+  D: {fileID: 0}
+  nextDialogueName: 
