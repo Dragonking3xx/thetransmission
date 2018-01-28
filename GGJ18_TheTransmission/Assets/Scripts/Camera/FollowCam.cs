@@ -6,6 +6,8 @@ public class FollowCam : MonoBehaviour {
 
 	public GameObject FollowTarget;
 
+	public float OffsetY = 10;
+
 	// TODO smoothing speed etc.
 	// TODO contraints?
 
@@ -21,10 +23,11 @@ public class FollowCam : MonoBehaviour {
 			Vector3 pos = transform.position;
 
 			pos.x = FollowTarget.transform.position.x;
-			pos.y = FollowTarget.transform.position.y;
+			pos.y = FollowTarget.transform.position.y + OffsetY;
 			// TODO smooth
 
 			transform.position = pos;
+			transform.LookAt(FollowTarget.transform.position);
 		}
 	}
 }

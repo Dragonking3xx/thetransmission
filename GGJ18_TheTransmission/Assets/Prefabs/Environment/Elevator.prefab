@@ -599,7 +599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpLink: {fileID: 0}
   Downlink: {fileID: 0}
-  Speed: 10
+  Speed: 20
 --- !u!137 &137916844146191876
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
