@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -49,8 +50,6 @@ public class GameController : MonoBehaviour {
 		DontDestroyOnLoad(gameObject); // stay persistent -- needed? On Die/Respawn everything should be reset
 
 		ResetCurrentLevel();
-
-        NormalTextBox.Instance.gameObject.SetActive(false);
 	}
 	
 	void ResetCurrentLevel()
@@ -58,12 +57,8 @@ public class GameController : MonoBehaviour {
 		Player = GameObject.FindGameObjectWithTag("transmission");
 		FollowCam followCam = Camera.main.gameObject.AddComponent<FollowCam>();
 		followCam.FollowTarget = Player;
-	}
 
-	// Update is called once per frame
-	void Update()
-	{
-
+		NormalTextBox.Instance.gameObject.SetActive(false);
 	}
 
 	public void ShowDialog(string dialog)
@@ -119,6 +114,8 @@ public class GameController : MonoBehaviour {
 				SetPlayerInteractionEnabled(false);
 				break;
 		}
+
+		currentState = newState;
 	}
 
 	public void SetPlayerInteractionEnabled(bool enabled)
@@ -148,7 +145,9 @@ public class GameController : MonoBehaviour {
 
     public void Restart()
     {
+		SceneManager.LoadScene("01_Tutorial");
+		SetState(State.INGAME);
 
-
+		ResetCurrentLevel();
     }
 }

@@ -32,7 +32,10 @@ public class NormalTextBox : MonoBehaviour {
     public GameObject Select02;
     public GameObject Select03;
 
-    public TextAsset TextADialog;
+	public GameObject DeathGO;
+	public GameObject DeathText;
+
+	public TextAsset TextADialog;
     public TextAsset TextAFluff;
     private Xml2CSharp.Dialogs Dialogs;
     private FluffClass.Dialogs FluffDialogs;
@@ -42,7 +45,6 @@ public class NormalTextBox : MonoBehaviour {
     private Xml2CSharp.Options OptionList;
 
     private GameObject go;
-
 
 	void Awake()
 	{
@@ -251,9 +253,8 @@ public class NormalTextBox : MonoBehaviour {
 
     public void Death(String deathText)
     {
-        GameObject deathGo = GameObject.Find("DeathText");
-        deathGo.GetComponent<Text>().text = deathText;
-        GameObject.Find("Death").SetActive(true);
+		DeathGO.SetActive(true);
+		DeathText.GetComponent<Text>().text = deathText;
     }
 
 
