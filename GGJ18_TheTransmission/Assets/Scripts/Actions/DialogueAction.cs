@@ -11,10 +11,14 @@ public class DialogueAction : Action {
 
 	public override void DoAction()
 	{
-		Debug.Log("Dialogue action!");
+		Debug.Log("Dialogue action?");
+		if (targetInRange != null)
+		{
+			Debug.Log("Dialogue action!");
 
-		Dialogue dialogue = targetInRange.GetComponent<Dialogue>();
+			Dialogue dialogue = targetInRange.GetComponent<Dialogue>();
 
-		GameController.Instance.ShowDialog(dialogue.DialogueID);
+			GameController.Instance.ShowDialog(dialogue.DialogueID);
+		}
 	}
 }

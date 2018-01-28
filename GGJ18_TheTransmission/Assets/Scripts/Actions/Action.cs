@@ -10,7 +10,7 @@ public class Action : MonoBehaviour {
 
 	public virtual void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Fire1"))
+		if (Input.GetKeyDown(KeyCode.E))
 		{
 			DoAction();
 		}
