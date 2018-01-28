@@ -126,9 +126,22 @@ public class GameController : MonoBehaviour {
 		if(Player != null)
 		{
 			Player.GetComponent<Move>().enabled = enabled;
-			foreach(Action action in Player.GetComponents<Action>())
+			foreach(Action action in Player.GetComponents<Action>()) // TODO not found via base class?
 			{
 				action.enabled = enabled;
+			}
+
+			// HACK
+			DialogueAction da = Player.GetComponent<DialogueAction>();
+			if(da != null)
+			{
+				da.enabled = enabled;
+			}
+
+			ElevatorAction ea = Player.GetComponent<ElevatorAction>();
+			if (ea != null)
+			{
+				ea.enabled = enabled;
 			}
 		}
 	}

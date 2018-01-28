@@ -9,7 +9,7 @@ public class Dialogue : Item {
 
 	// Use this for initialization
 	void Start () {
-		this.tag = "dialogue";
+		//this.tag = "dialogue";
 	}
 	
 	// Update is called once per frame

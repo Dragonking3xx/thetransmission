@@ -14,13 +14,13 @@ public class Item : MonoBehaviour {
 		
 	}
 
-	void OnTriggerEnter2D(Collider2D collider)
-	{
-		collider.SendMessage("ItemInRange", gameObject);
-	}
+	//void OnTriggerEnter2D(Collider2D collider)
+	//{
+	//	collider.SendMessage("ItemInRange", gameObject);
+	//}
 
-	void OnTriggerExit2D(Collider2D collider)
-	{
-		collider.SendMessage("ItemOutOfRange", gameObject);
-	}
+	//void OnTriggerExit2D(Collider2D collider)
+	//{
+	//	collider.SendMessage("ItemOutOfRange", gameObject);
+	//}
 }
