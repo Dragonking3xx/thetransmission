@@ -49,6 +49,8 @@ public class GameController : MonoBehaviour {
 		DontDestroyOnLoad(gameObject); // stay persistent -- needed? On Die/Respawn everything should be reset
 
 		ResetCurrentLevel();
+
+        NormalTextBox.Instance.gameObject.SetActive(false);
 	}
 	
 	void ResetCurrentLevel()

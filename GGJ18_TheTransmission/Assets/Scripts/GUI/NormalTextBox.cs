@@ -158,8 +158,20 @@ public class NormalTextBox : MonoBehaviour {
            
         }
 
-        
+    }
+    public void LoadLogText(String TextId)
+    {
+        List<FluffClass.Dialog> fluffDialogList = FluffDialogs.Dialog;
+        foreach (FluffClass.Dialog Dialog in fluffDialogList)
+        {
+            if (Dialog.Id.Equals(TextId))
+            {
+                GameObject.Find("PCTextbox").SetActive(true);
 
+                break;
+            }
+
+        }
 
 
     }
