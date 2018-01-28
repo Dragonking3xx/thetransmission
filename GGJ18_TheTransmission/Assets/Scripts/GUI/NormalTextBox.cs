@@ -109,7 +109,7 @@ public class NormalTextBox : MonoBehaviour {
 
     }
     
-    public void LoadFluffText()
+    public void LoadFluffText(String TextId)
     {
         Select01.SetActive(false);
         Select02.SetActive(false);
