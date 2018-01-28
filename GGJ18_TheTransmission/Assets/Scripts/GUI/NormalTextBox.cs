@@ -93,8 +93,10 @@ public class NormalTextBox : MonoBehaviour {
 		
 	}
 
-    public void loadText(String GuyName, String TextId="0")
+    public void loadText(String DialogGuy, String TextId="0")
     {
+		GuyName = DialogGuy;
+
 		if(!gameObject.activeSelf)
 		{
 			gameObject.SetActive(true);
