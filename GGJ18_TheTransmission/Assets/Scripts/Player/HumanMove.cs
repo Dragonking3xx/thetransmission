@@ -95,7 +95,8 @@ public class HumanMove : Move {
 		}
 		*/
 
-		// transform.rotation = Quaternion.AngleAxis(180 - 90 * direction, Vector3.up); // TODO target, turn over time
+		Quaternion targetRotation = Quaternion.AngleAxis(180 - 89.9f * direction, Vector3.up); // TODO target, turn over time
+		transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.8f);
 		// BUG: this makes human fall through the floor, why?
 	}
 
