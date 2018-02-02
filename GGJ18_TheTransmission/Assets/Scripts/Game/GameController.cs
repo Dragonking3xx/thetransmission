@@ -123,8 +123,11 @@ public class GameController : MonoBehaviour {
 		SetState(State.DEATH);
 
         NormalTextBox.Instance.Death(DeathText);
-        Player.GetComponent<Animator>().SetTrigger("die");
-    }
+		if (Player.GetComponent<Animator>())
+		{
+			Player.GetComponent<Animator>().SetTrigger("die");
+		}
+	}
 
 	private void SetState(State newState)
 	{

@@ -12,9 +12,11 @@ public class HumanMove : Move {
 
 	private Vector2 inputVector;
 
+	private Rigidbody2D rb;
+
 	// Use this for initialization
 	void Start () {
-		
+		rb = GetComponent<Rigidbody2D>();
 	}
 
 	public override void Activate()
@@ -44,30 +46,6 @@ public class HumanMove : Move {
 	}
 
 	void Walk() {
-		// TODO handle indirectly via InputController or something
-		//if(Input.GetKeyDown(KeyCode.LeftArrow))
-		//{
-		//	inputVector.x = -1;
-		//}
-		//else if(Input.GetKeyUp(KeyCode.LeftArrow))
-		//{
-		//	if (!Input.GetKey(KeyCode.RightArrow))
-		//	{
-		//		inputVector.x -= Time.deltaTime;
-		//	}
-		//}
-		//else if (Input.GetKeyDown(KeyCode.RightArrow))
-		//{
-		//	inputVector.x = 1;
-		//}
-		//else if (Input.GetKeyUp(KeyCode.RightArrow))
-		//{
-		//	if (!Input.GetKey(KeyCode.LeftArrow))
-		//	{
-		//		inputVector.x -= Time.deltaTime;
-		//	}
-		//}
-
 		inputVector.x = Input.GetAxis("Horizontal"); // TODO smooth this? retriggered?
 
 		Vector2 pos = transform.position;
@@ -75,6 +53,27 @@ public class HumanMove : Move {
 
 		pos += (inputVector * Speed * Time.deltaTime);
 
+		rb.velocity = Speed * inputVector;
+		if (rb.velocity.magnitude > 0.01)
+		{
+			GetComponent<Animator>().SetFloat("speed", rb.velocity.magnitude);
+			if (rb.velocity.x > 0)
+			{
+				direction = 1;
+			}
+			else
+			{
+				direction = -1;
+			}
+		}
+		else
+		{
+			Debug.Log("speed 0");
+			GetComponent<Animator>().SetFloat("speed", 0);
+			direction = 0;
+		}
+
+		/*
 		transform.position = pos;
 
 		if (inputVector.magnitude > 0.01)
@@ -94,6 +93,7 @@ public class HumanMove : Move {
 			GetComponent<Animator>().SetFloat("speed", 0);
 			direction = 0;
 		}
+		*/
 
 		// transform.rotation = Quaternion.AngleAxis(180 - 90 * direction, Vector3.up); // TODO target, turn over time
 		// BUG: this makes human fall through the floor, why?

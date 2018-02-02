@@ -36,7 +36,7 @@ public class NormalTextBox : MonoBehaviour {
 	public GameObject DeathText;
 
 	public GameObject PCTextbox1;
-
+	public GameObject PCUI;
 	public TextAsset TextADialog;
     public TextAsset TextAFluff;
     public TextAsset TextADeath;
@@ -176,7 +176,9 @@ public class NormalTextBox : MonoBehaviour {
     }
     public void LoadLogText(String TextId)
     {
-        List<FluffClass.Dialog> fluffDialogList = FluffDialogs.Dialog;
+		PCUI.SetActive(true);
+
+		List <FluffClass.Dialog> fluffDialogList = FluffDialogs.Dialog;
         foreach (FluffClass.Dialog Dialog in fluffDialogList)
         {
             if (Dialog.Id.Equals(TextId))
@@ -198,7 +200,7 @@ public class NormalTextBox : MonoBehaviour {
     {
         if(OptionList != null)
         {
-            if(OptionList.Option[1].Action != null)
+            if(OptionList.Option[0].Action != null)
             {
                 Action(OptionList.Option[0].Action);
                 return;

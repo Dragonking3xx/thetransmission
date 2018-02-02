@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Level : MonoBehaviour {
 
+	public const int Preparing = -1;
 	public const int StartRoom = 0;
 	public const int Room2 = 1;
 
 	public static int[] Steps;
-	public int currentStep = 0;
+	public int currentStep = -1;
 
 	public GameObject transmission;
 	public GameObject satDish;
@@ -26,10 +27,6 @@ public class Level : MonoBehaviour {
 
 		Human_01 = GameObject.Find("Human_01");
 
-		// Start: fly in
-		Vector3 dist = (satDish.transform.position - transmission.transform.position);
-		transmission.GetComponent<Rigidbody2D>().velocity = dist * 500;
-
 		// TODO: After some seconds, fly to first Human (who perhaps presses a button?)
 	}
 
@@ -37,6 +34,16 @@ public class Level : MonoBehaviour {
 	{
 		switch(currentStep)
 		{
+			case Preparing:
+				// Start: fly in
+				if (transmission.GetComponent<Rigidbody2D>())
+				{
+					Vector3 dist = (satDish.transform.position - transmission.transform.position);
+					transmission.GetComponent<Rigidbody2D>().velocity = dist * 500;
+					currentStep++;
+				}
+				break;
+
 			case StartRoom:
 
 				break;

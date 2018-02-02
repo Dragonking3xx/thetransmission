@@ -18,14 +18,14 @@ public class PCTextBox : MonoBehaviour {
             instance = Instance;
         }
     }
-    private Text PCText;
+    public GameObject PCText;
+	public GameObject PCUI;
 
-    // Use this for initialization
-    void Start () {
-        PCText = transform.Find("PCText").gameObject.GetComponent<Text>();
-        GameObject.Find("PrevPage").SetActive(false);
-        GameObject.Find("NextPage").SetActive(false);
-    }
+	// Use this for initialization
+	void Start () {
+		
+
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -44,10 +44,12 @@ public class PCTextBox : MonoBehaviour {
     public void ExitPC()
     {
         GameController.Instance.DialogEnd();
-    }
+		PCUI.SetActive(false);
+
+	}
 
     public void SetText(string text)
     {
-        PCText.text = text;
+		PCText.GetComponent<Text>().text = text;
     }
 }
