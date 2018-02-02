@@ -56,8 +56,11 @@ public class GameController : MonoBehaviour {
 	void ResetCurrentLevel()
 	{
 		Player = GameObject.FindGameObjectWithTag("transmission");
-		FollowCam followCam = Camera.main.gameObject.AddComponent<FollowCam>();
-		followCam.FollowTarget = Player;
+		if (Camera.main.GetComponent<FollowCam>() == null)
+		{
+			FollowCam followCam = Camera.main.gameObject.AddComponent<FollowCam>();
+			followCam.FollowTarget = Player;
+		}
 	}
 
     // Update is called once per frame
