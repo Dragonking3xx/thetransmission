@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TransmissionMove : Move {
 
-	public Vector3 headOffset = Vector3.up * 6;
+	public Vector3 headOffset = Vector3.up * 6; // this should really be a child of human
 
 	public float Speed = 10;
 	public float MaxSpeed = 10;
@@ -111,6 +111,10 @@ public class TransmissionMove : Move {
 	IEnumerator AnimateActivation()
 	{
 		r.enabled = true;
+		Vector3 pos = transform.position;
+		pos = humanInRange.transform.position + headOffset;
+		pos.z = -1;
+		transform.position = pos;
 
 		rb.AddForce(Vector2.up * 300);
 
@@ -135,16 +139,47 @@ public class TransmissionMove : Move {
 		Color c;
 
 		rb.velocity = Vector2.zero;
-		rb.AddForce(((humanInRange.transform.position + headOffset) - transform.position)*100);
+		//rb.AddForce(((humanInRange.transform.position + headOffset) - transform.position)*100);
 
-		while (r.material.color.a > 0)
+		float transmissionZ = -1;
+		float interZ = -10;
+		float humanZ = 1;
+
+		Vector3 pos;
+		Vector3 startPos = transform.position;
+		Vector3 targetPos = humanInRange.transform.position + headOffset;
+
+		// t < 1: spiral out
+		// t < 2: home in
+		float t = 0;
+		while (t < 2)
 		{
-			c = r.material.color;
-			c.a -= (Time.deltaTime / FadeDuration);
-			r.material.color = c;
+			pos = transform.position;
 
+			// TODO this is linear, make t quadratic? calc correct vel/acc?
+			pos.z = transmissionZ + (1 - Mathf.Abs(t - 1))*(t < 1 ? (interZ - transmissionZ) : (interZ - transmissionZ - humanZ));
+			float dist = Mathf.Max(0, pos.z - transmissionZ);
+
+			// spiral - TODO: contract earlier?
+			float r = (t < 1 ? 1 - (t - 1) * (t - 1) : (t - 2) * (t - 2));
+			pos.x = Mathf.Lerp(startPos.x, targetPos.x, Mathf.Clamp01(t)) + Mathf.Sin(t * 20) * r; // reduce if too spinny
+			pos.y = Mathf.Lerp(startPos.y, targetPos.y, Mathf.Clamp01(t)) + Mathf.Cos(t * 20) * r;
+
+			transform.position = pos;
+
+			t += (Time.deltaTime); // NOTE: for debugging, we can add less here to slow it down
 			yield return null;
 		}
+
+		// fade out
+		//while (r.material.color.a > 0)
+		//{
+		//	c = r.material.color;
+		//	c.a -= (Time.deltaTime / FadeDuration);
+		//	r.material.color = c;
+
+		//	yield return null;
+		//}
 
 		c = r.material.color;
 		c.a = 0;
@@ -153,5 +188,7 @@ public class TransmissionMove : Move {
 		r.enabled = false;
 
 		rb.velocity = Vector2.zero; // TODO smooth to human head?
+
+		humanInRange.SendMessage("ReceivedTransmission");
 	}
 }

@@ -39,7 +39,7 @@ public class HumanMove : Move {
 	void Update() {
 		Walk();
 		
-		if (Input.GetKeyDown(KeyCode.T) || Input.GetButtonDown("Jump"))
+		if (Input.GetKeyDown(KeyCode.T))
 		{
 			Transmit();
 		}
@@ -72,28 +72,6 @@ public class HumanMove : Move {
 			GetComponent<Animator>().SetFloat("speed", 0);
 			direction = 0;
 		}
-
-		/*
-		transform.position = pos;
-
-		if (inputVector.magnitude > 0.01)
-		{
-			GetComponent<Animator>().SetFloat("speed", inputVector.magnitude);
-			if(inputVector.x > 0)
-			{
-				direction = 1;
-			}
-			else
-			{
-				direction = -1;
-			}
-		}
-		else
-		{
-			GetComponent<Animator>().SetFloat("speed", 0);
-			direction = 0;
-		}
-		*/
 
 		Quaternion targetRotation = Quaternion.AngleAxis(180 - 89.9f * direction, Vector3.up); // TODO target, turn over time
 		transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.8f);
@@ -135,10 +113,7 @@ public class HumanMove : Move {
 			{
 				transmissionMove.Deactivate();
 
-				GetComponent<Animator>().SetTrigger("receive");
-
 				GameController.Instance.Player = gameObject;
-
 				Activate();
 			}
 			else
@@ -150,5 +125,11 @@ public class HumanMove : Move {
 		{
 			Debug.Log("transmission object not received!");
 		}
+	}
+
+	public void ReceivedTransmission()
+	{
+		GetComponent<Animator>().SetTrigger("receive");
+		//Activate();
 	}
 }
