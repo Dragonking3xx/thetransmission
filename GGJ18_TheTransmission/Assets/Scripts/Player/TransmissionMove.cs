@@ -59,7 +59,7 @@ public class TransmissionMove : Move {
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.T) || Input.GetButton("Jump"))
+		if (Input.GetKeyDown(KeyCode.T))
 		{
 			TryReceive();
 		}
@@ -82,7 +82,7 @@ public class TransmissionMove : Move {
 		GameObject charactersNode = GameObject.Find("Characters");
 		if (charactersNode != null)
 		{
-			transform.parent = charactersNode.transform;
+			transform.parent = charactersNode.transform; // TODO make sure it's starting from parent human? Sometimes the position is wrong
 		}
 		else
 		{
@@ -99,13 +99,13 @@ public class TransmissionMove : Move {
 
 		if (humanInRange != null) {
 			transform.parent = humanInRange.transform;
+
+			StartCoroutine(AnimateDeactivation());
 		}
 		else
 		{
 			Debug.Log("No humanInRange found, can't set parent!");
 		}
-
-		StartCoroutine(AnimateDeactivation());
 	}
 
 	IEnumerator AnimateActivation()

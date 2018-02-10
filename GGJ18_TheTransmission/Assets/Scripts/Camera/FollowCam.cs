@@ -7,13 +7,21 @@ public class FollowCam : MonoBehaviour {
 	public GameObject FollowTarget;
 
 	public float OffsetY = 10;
+	public float SmoothTime = 1.0f;
 
-	// TODO smoothing speed etc.
 	// TODO contraints?
 
 	// Use this for initialization
 	void Start () {
-		
+		if(FollowTarget)
+		{
+			// start: snap to target
+			Vector3 pos = FollowTarget.transform.position;
+			pos.y += OffsetY;
+			pos.z = transform.position.z;
+
+			transform.position = pos;
+		}
 	}
 	
 	// Update is called once per frame
@@ -21,13 +29,20 @@ public class FollowCam : MonoBehaviour {
 		if (FollowTarget != null)
 		{
 			Vector3 pos = transform.position;
+			Vector3 followPos = ClampToFloor(FollowTarget.transform.position);
+			followPos.z = pos.z; // stay on camera plane
 
-			pos.x = FollowTarget.transform.position.x;
-			pos.y = FollowTarget.transform.position.y + OffsetY;
-			// TODO smooth
+			// smooth follow
+			pos = Vector3.Lerp(pos, followPos, SmoothTime * Time.deltaTime);
 
 			transform.position = pos;
-			transform.LookAt(FollowTarget.transform.position);
+			//transform.LookAt(FollowTarget.transform.position);
 		}
+	}
+
+	Vector3 ClampToFloor(Vector3 position)
+	{
+		// TODO
+		return position + Vector3.up * OffsetY;
 	}
 }

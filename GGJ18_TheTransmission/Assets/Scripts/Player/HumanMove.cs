@@ -8,7 +8,10 @@ using UnityEngine;
  */
 public class HumanMove : Move {
 
+	public bool AnimationInProgress { get; private set; }
+
 	public float Speed = 5;
+	public float ReceiveAnimationLength = 3.66f;
 
 	private Vector2 inputVector;
 
@@ -17,6 +20,7 @@ public class HumanMove : Move {
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
+		AnimationInProgress = false;
 	}
 
 	public override void Activate()
@@ -37,6 +41,8 @@ public class HumanMove : Move {
 
 	// Update is called once per frame
 	void Update() {
+		if (AnimationInProgress) return;
+
 		Walk();
 		
 		if (Input.GetKeyDown(KeyCode.T))
@@ -68,7 +74,6 @@ public class HumanMove : Move {
 		}
 		else
 		{
-			Debug.Log("speed 0");
 			GetComponent<Animator>().SetFloat("speed", 0);
 			direction = 0;
 		}
@@ -111,10 +116,12 @@ public class HumanMove : Move {
 			Move transmissionMove = transmission.GetComponent<Move>();
 			if (transmissionMove != null)
 			{
+				AnimationInProgress = true;
+
 				transmissionMove.Deactivate();
 
 				GameController.Instance.Player = gameObject;
-				Activate();
+				Activate(); // to set as followcam target - input disabled by AnimationInProgress
 			}
 			else
 			{
@@ -130,6 +137,16 @@ public class HumanMove : Move {
 	public void ReceivedTransmission()
 	{
 		GetComponent<Animator>().SetTrigger("receive");
-		//Activate();
+		StartCoroutine(WaitForReceiveAnimationFinished());
+	}
+
+	// triggered by end of animation
+	IEnumerator WaitForReceiveAnimationFinished()
+	{
+		yield return new WaitForSeconds(ReceiveAnimationLength);
+
+		Debug.Log("ReceiveFinished!");
+		AnimationInProgress = false;
+		Debug.Log("Active control over human.");
 	}
 }
